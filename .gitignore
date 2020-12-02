@@ -1,5 +1,9 @@
 **/*.code-workspace
 .vscode/**
 **/.vscode/**
-bin/**
+2020/bin/**
 **/*.o
+2015/**
+2018/**
+2019/**
+euler/**
