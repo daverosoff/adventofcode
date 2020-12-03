@@ -21,7 +21,7 @@ using report = std::vector<int>;
 
 int part_one(const report& entries);
 int part_two(const report& entries);
-int prob_one(const report& entries, size_t n, int target);
+int prob_one(const report& entries, size_t n, int target, int cumulative);
 
 int main()
 {
@@ -55,12 +55,12 @@ int main()
   std::cout << "-- Using recursive solution --" << std::endl;
 
   start1 = cl.now();
-  p1 = prob_one(entries, 2, 2020);
+  p1 = prob_one(entries, 2, 2020, 1);
   end1 = cl.now();
   elapsed1 = end1 - start1;
 
   start2 = cl.now();
-  p2 = prob_one(entries, 3, 2020);
+  p2 = prob_one(entries, 3, 2020, 1);
   end2 = cl.now();
   elapsed2 = end2 - start2;
 
@@ -96,7 +96,11 @@ int part_two(const report& entries)
   return -1;
 }
 
-int prob_one(const report& entries, size_t n, int target)
+// This is the tail-recursive implementation of my original
+// idea. Classic trick, use a function argument to serve as
+// "accumulator" and track the running product.
+
+int prob_one(const report& entries, size_t n, int target, int acc)
 {
   size_t entries_len = entries.size();
 
@@ -106,8 +110,7 @@ int prob_one(const report& entries, size_t n, int target)
   if (n == 1)
   {
     for (int i : entries)
-      if (i == target)
-        return i;
+      if (i == target) { return i * acc; }
     return -1; // only because all the inputs are positive
   }
 
@@ -117,11 +120,15 @@ int prob_one(const report& entries, size_t n, int target)
 
     //build sublist with item i omitted
     for (size_t j = 0; j < entries_len; ++j)
+    {
       if (j != i)
+      {
         subproblem.push_back(entries[j]);
-    int subsol = prob_one(subproblem, n - 1, target - entries[i]);
-    if (subsol != -1)
-      return subsol * entries[i];
+      }
+    }
+    int subsol = prob_one(subproblem, n - 1, target - entries[i],
+      entries[i] * acc);
+    if (subsol != -1) { return subsol; }
   }
 
   return -1;
