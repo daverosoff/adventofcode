@@ -1,3 +1,5 @@
+import time
+
 with open("input1") as f:
   reports = [int(val) for val in f.readlines()]
 
@@ -14,8 +16,19 @@ def part_two():
         if i + j + k == 2020:
           return i * j * k
 
-print("Part One: {}".format(part_one()))
-print("Part Two: {}".format(part_two()))
+t0 = time.perf_counter()
+p1 = part_one()
+t1 = time.perf_counter()
+elapsed = t1 - t0
+
+print(f"Part One: {p1:d}, {1e6 * elapsed:0.0f} µsec")
+
+t0 = time.perf_counter()
+p2 = part_two()
+t1 = time.perf_counter()
+elapsed = t1 - t0
+
+print(f"Part Two: {p2:d}, {1e6 * elapsed:0.0f} µsec")
 
 # recursive solution
 
@@ -33,5 +46,16 @@ def prob_one(report_l, n, target):
     if subsoln:
       return report_l[i] * subsoln
 
-print("Part One: {}".format(prob_one(reports, 2, 2020)))
-print("Part Two: {}".format(prob_one(reports, 3, 2020)))
+t0 = time.perf_counter()
+p1 = prob_one(reports, 2, 2020)
+t1 = time.perf_counter()
+elapsed = t1 - t0
+
+print(f"Part One: {p1:d}, {1e6*elapsed:0.0f} µsec")
+
+t0 = time.perf_counter()
+p1 = prob_one(reports, 3, 2020)
+t1 = time.perf_counter()
+elapsed = t1 - t0
+
+print(f"Part Two: {p1:d}, {1e6*elapsed:0.0f} µsec")
