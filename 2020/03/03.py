@@ -19,14 +19,14 @@ def count_trees(ourmap, dx, dy):
 tic = time.perf_counter()
 p1 = count_trees(ourmap, 3, 1)
 toc = time.perf_counter()
-print(f"Part One: {p1:d}, {1e6*(toc-tic):0.0f} µsec")
+print(f"Part One: {p1}, {1e6 * (toc - tic):0.3f} µsec")
 
-p2 = 1
+p2 = 1 # empty product, initial value of accumulation
 tic = time.perf_counter()
-p2 *= count_trees(ourmap, 1,1)
-p2 *= count_trees(ourmap, 3,1)
-p2 *= count_trees(ourmap, 5,1)
-p2 *= count_trees(ourmap, 7,1)
-p2 *= count_trees(ourmap, 1,2)
+p2 *= count_trees(ourmap, 1, 1)
+p2 *= count_trees(ourmap, 3, 1)
+p2 *= count_trees(ourmap, 5, 1)
+p2 *= count_trees(ourmap, 7, 1)
+p2 *= count_trees(ourmap, 1, 2)
 toc = time.perf_counter()
-print(f"Part Two: {p2:d}, {1e6*(toc-tic):0.0f} µsec")
+print(f"Part Two: {p2}, {1e6 * (toc - tic):0.3f} µsec")
