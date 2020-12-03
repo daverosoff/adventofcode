@@ -32,6 +32,8 @@ print(f"Part Two: {p2:d}, {1e6 * elapsed:0.0f} µsec")
 
 # recursive solution
 # tail recursion uses accumulator to keep running product
+# then I did a bunch of reading and found out python doesn't
+# support tail-call optimization, woops
 
 def prob_one(report_l, n, target, acc):
   if n == 0 or len(report_l) == 0:
