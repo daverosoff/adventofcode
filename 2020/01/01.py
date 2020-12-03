@@ -45,7 +45,7 @@ def prob_one(report_l, n, target, acc):
 
   for i in range(len(report_l)):
     subprob = [v for (j, v) in enumerate(report_l) if j != i]
-    subsoln = prob_one(subprob, n-1, target - report_l[i], acc * report_l[i])
+    subsoln = prob_one(subprob, n - 1, target - report_l[i], acc * report_l[i])
     if subsoln:
       return subsoln
 
@@ -54,11 +54,11 @@ p1 = prob_one(reports, 2, 2020, 1)
 t1 = time.perf_counter()
 elapsed = t1 - t0
 
-print(f"Part One: {p1:d}, {1e6*elapsed:0.0f} µsec")
+print(f"Part One: {p1}, {1e6 * elapsed:0.3f} µsec")
 
 t0 = time.perf_counter()
 p1 = prob_one(reports, 3, 2020, 1)
 t1 = time.perf_counter()
 elapsed = t1 - t0
 
-print(f"Part Two: {p1:d}, {1e6*elapsed:0.0f} µsec")
+print(f"Part Two: {p1}, {1e6 * elapsed:0.3f} µsec")
