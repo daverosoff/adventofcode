@@ -23,10 +23,10 @@ int main()
   for (auto pol : policies)
   {
     std::istringstream iss(pol);
-    size_t min = 0;
+    size_t min;
     iss >> min;
     iss.ignore(1, '-');
-    size_t max = 0;
+    size_t max;
     iss >> max;
     iss.ignore(1, ' ');
     char letter;
