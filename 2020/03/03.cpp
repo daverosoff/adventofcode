@@ -23,9 +23,8 @@ int main()
 
   std::cout << "Part One: " << p1 << ", " << elapsed.count() << " µsec" << std::endl;
 
-  int p2 = 1;
-
   t0 = cl.now();
+  int p2 = 1;
   p2 *= count_trees(ourmap, 1, 1);
   p2 *= count_trees(ourmap, 3, 1);
   p2 *= count_trees(ourmap, 5, 1);
