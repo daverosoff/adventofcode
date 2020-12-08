@@ -6,7 +6,6 @@ with open("input", 'r') as f:
 validPassports = 0
 passportsProcessed = 0
 first = True
-needed_keys = ["byr", "iyr", "hgt", "ecl", "hcl", "pid", "eyr"]
 
 def validate_byr(byr_v):
   i = int(byr_v)
@@ -34,7 +33,7 @@ def validate_hgt(hgt_v):
     return False
 
 def validate_ecl(ecl_v):
-  return ecl_v in ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth']
+  return ecl_v in ["amb", "blu", "brn", "gry", "grn", "hzl", "oth"]
 
 def validate_hcl(hcl_v):
   return ((len(hcl_v) == 7)
@@ -46,14 +45,16 @@ def validate_pid(pid_v):
   return ((len(pid_v) == 9)
     and all([ch in "0123456789" for ch in pid_v]))
 
+needed_keys = ["byr", "iyr", "hgt", "ecl", "hcl", "pid", "eyr"]
+
 validator_d = {
   'byr': validate_byr,
-  'eyr': validate_eyr,
   'iyr': validate_iyr,
   'hgt': validate_hgt,
-  'hcl': validate_hcl,
   'ecl': validate_ecl,
+  'hcl': validate_hcl,
   'pid': validate_pid,
+  'eyr': validate_eyr,
 }
 
 def is_valid(pp):
