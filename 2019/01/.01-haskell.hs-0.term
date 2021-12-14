@@ -1,0 +1,1612 @@
+Agent pid 97076
+Enter passphrase for /home/user/.ssh/id_rsa: 
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghci
+GHCi, version 8.4.2: http://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> Prelude> Prelude> 
+[?1l>Leaving GHCi.
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | h[K[C[C[Kghc --make 01--h[K[Khaskell.hs 
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | ./01-haskell 
+83326
+84939
+135378
+105431
+119144
+124375
+138528
+88896
+98948
+85072
+112576
+144497
+112824
+98892
+81551
+139462
+73213
+93261
+130376
+118425
+132905
+54627
+134676
+140435
+131410
+128441
+96755
+94866
+89490
+122118
+106596
+77531
+84941
+57494
+97518
+136224
+69247
+147209
+92814
+63436
+79819
+109335
+85698
+110103
+79072
+52282
+73957
+68668
+105394
+149663
+91954
+66479
+55778
+126377
+75471
+75662
+71910
+113031
+133917
+76043
+65086
+117882
+134854
+60690
+67495
+62434
+67758
+95329
+123078
+128541
+108213
+93543
+147937
+148262
+56212
+148586
+73733
+110763
+149243
+133232
+95817
+68261
+123872
+93764
+147297
+51555
+110576
+89485
+109570
+88052
+132786
+70585
+105973
+85898
+149990
+114463
+147536
+67786
+139193
+112322
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ [K$ [K$ [K$ [K$ cat puzzle.dat | ./01-haskell [C[C[5Pghc --make 01-haskell.hs[C
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+
+[;1m01-haskell.hs:4:5: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘[]’ with ‘IO’
+      Expected type: IO Char
+        Actual type: String
+    • In a stmt of a 'do' block: last allLines
+      In the expression:
+        do contents <- getContents
+           let allLines = lines contents
+           last allLines
+           last $ init allLines
+      In an equation for ‘main’:
+          main
+            = do contents <- getContents
+                 let allLines = ...
+                 last allLines
+                 ....[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m4 |[0m[0m     [;1m[31mlast allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m     ^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:5:5: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘[]’ with ‘IO’
+      Expected type: IO Char
+        Actual type: String
+    • In a stmt of a 'do' block: last $ init allLines
+      In the expression:
+        do contents <- getContents
+           let allLines = lines contents
+           last allLines
+           last $ init allLines
+      In an equation for ‘main’:
+          main
+            = do contents <- getContents
+                 let allLines = ...
+                 last allLines
+                 ....[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m     [;1m[31mlast $ init allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m     ^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell.hs [C[C[5@cat puzzle.dat | ./01-haskell[C
+83326
+84939
+135378
+105431
+119144
+124375
+138528
+88896
+98948
+85072
+112576
+144497
+112824
+98892
+81551
+139462
+73213
+93261
+130376
+118425
+132905
+54627
+134676
+140435
+131410
+128441
+96755
+94866
+89490
+122118
+106596
+77531
+84941
+57494
+97518
+136224
+69247
+147209
+92814
+63436
+79819
+109335
+85698
+110103
+79072
+52282
+73957
+68668
+105394
+149663
+91954
+66479
+55778
+126377
+75471
+75662
+71910
+113031
+133917
+76043
+65086
+117882
+134854
+60690
+67495
+62434
+67758
+95329
+123078
+128541
+108213
+93543
+147937
+148262
+56212
+148586
+73733
+110763
+149243
+133232
+95817
+68261
+123872
+93764
+147297
+51555
+110576
+89485
+109570
+88052
+132786
+70585
+105973
+85898
+149990
+114463
+147536
+67786
+139193
+112322
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | ./01-haskell 
+83326
+84939
+135378
+105431
+119144
+124375
+138528
+88896
+98948
+85072
+112576
+144497
+112824
+98892
+81551
+139462
+73213
+93261
+130376
+118425
+132905
+54627
+134676
+140435
+131410
+128441
+96755
+94866
+89490
+122118
+106596
+77531
+84941
+57494
+97518
+136224
+69247
+147209
+92814
+63436
+79819
+109335
+85698
+110103
+79072
+52282
+73957
+68668
+105394
+149663
+91954
+66479
+55778
+126377
+75471
+75662
+71910
+113031
+133917
+76043
+65086
+117882
+134854
+60690
+67495
+62434
+67758
+95329
+123078
+128541
+108213
+93543
+147937
+148262
+56212
+148586
+73733
+110763
+149243
+133232
+95817
+68261
+123872
+93764
+147297
+51555
+110576
+89485
+109570
+88052
+132786
+70585
+105973
+85898
+149990
+114463
+147536
+67786
+139193
+112322
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | ./01-haskell [C[C[5Pghc --make 01-haskell.hs[C
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+
+[;1m01-haskell.hs:5:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘([a0] -> a0) -> [String] -> IO b’
+                  with actual type ‘[Char]’
+    • The function ‘last’ is applied to two arguments,
+      but its type ‘[String] -> [Char]’ has only one
+      In the expression: last allLines last
+      In the expression: last allLines last $ init allLines
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:1:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m             [;1m[31mlast allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^...[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ [K$ [K$ [K$ [K$ [K$ [K$ [K$ [K$ runghc has[K[K[K02-h[K[K[K10h[K[K-haskell.hs
+
+[;1m01-haskell.hs:5:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘([a0] -> a0) -> [String] -> IO b’
+                  with actual type ‘[Char]’
+    • The function ‘last’ is applied to two arguments,
+      but its type ‘[String] -> [Char]’ has only one
+      In the expression: last allLines last
+      In the expression: last allLines last $ init allLines
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:1:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m             [;1m[31mlast allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^...[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:10:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Integral (t -> a)
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        getFuel :: forall t a.
+                   (Integral (t -> a), Num t, Ord a) =>
+                   (t -> a) -> a -> a[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m10 |[0m[0m [;1m[31mgetFuel mass = max $ (fuel mass) 0[0m[0m 
+[;1m[34m   |[0m[0m[;1m[31m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+
+[;1m01-haskell.hs:5:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘([a0] -> a0) -> b0 -> c0’
+                  with actual type ‘[Char]’
+    • The function ‘last’ is applied to two arguments,
+      but its type ‘[String] -> [Char]’ has only one
+      In the first argument of ‘(.)’, namely ‘last allLines last’
+      In the expression: last allLines last . init allLines[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m             [;1m[31mlast allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^...[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:5:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘IO b’ with actual type ‘a1 -> c0’
+    • Probable cause: ‘(.)’ is applied to too few arguments
+      In the expression: last allLines last . init allLines
+      In a stmt of a 'do' block:
+        let allLines = lines contents in last allLines last . init allLines
+      In the expression:
+        do contents <- getContents
+           let allLines = ... in last allLines last . init allLines
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:1:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m             [;1m[31mlast allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^...[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:6:20: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘a1 -> b0’
+                  with actual type ‘[String]’
+    • Possible cause: ‘init’ is applied to too many arguments
+      In the second argument of ‘(.)’, namely ‘init allLines’
+      In the expression: last allLines last . init allLines
+      In a stmt of a 'do' block:
+        let allLines = lines contents in last allLines last . init allLines[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m6 |[0m[0m             last . [;1m[31minit allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m                    ^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:10:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Integral (t -> a)
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        getFuel :: forall t a.
+                   (Integral (t -> a), Num t, Ord a) =>
+                   (t -> a) -> a -> a[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m10 |[0m[0m [;1m[31mgetFuel mass = max $ (fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+
+[;1m01-haskell.hs:6:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘IO b’ with actual type ‘a0 -> c0’
+    • Probable cause: ‘(.)’ is applied to too few arguments
+      In the expression: last . init allLines
+      In a stmt of a 'do' block:
+        let allLines = lines contents in last . init allLines
+      In the expression:
+        do contents <- getContents
+           let allLines = ... in last . init allLines
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:1:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m6 |[0m[0m             [;1m[31mlast . init allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:6:20: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘a0 -> [c0]’
+                  with actual type ‘[String]’
+    • Possible cause: ‘init’ is applied to too many arguments
+      In the second argument of ‘(.)’, namely ‘init allLines’
+      In the expression: last . init allLines
+      In a stmt of a 'do' block:
+        let allLines = lines contents in last . init allLines[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m6 |[0m[0m             last . [;1m[31minit allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m                    ^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:10:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Integral (t -> a)
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        getFuel :: forall t a.
+                   (Integral (t -> a), Num t, Ord a) =>
+                   (t -> a) -> a -> a[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m10 |[0m[0m [;1m[31mgetFuel mass = max $ (fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+
+[;1m01-haskell.hs:6:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘[]’ with ‘IO’
+      Expected type: IO Char
+        Actual type: String
+    • In the expression: last $ init allLines
+      In a stmt of a 'do' block:
+        let allLines = lines contents in last $ init allLines
+      In the expression:
+        do contents <- getContents
+           let allLines = ... in last $ init allLines[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m6 |[0m[0m             [;1m[31mlast $ init allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:10:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Integral (t -> a)
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        getFuel :: forall t a.
+                   (Integral (t -> a), Num t, Ord a) =>
+                   (t -> a) -> a -> a[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m10 |[0m[0m [;1m[31mgetFuel mass = max $ (fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+
+[;1m01-haskell.hs:6:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Variable not in scope: putStrlast :: [String] -> IO b[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m6 |[0m[0m             [;1m[31mputStrlast[0m[0m $ init allLines
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:10:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Integral (t -> a)
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        getFuel :: forall t a.
+                   (Integral (t -> a), Num t, Ord a) =>
+                   (t -> a) -> a -> a[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m10 |[0m[0m [;1m[31mgetFuel mass = max $ (fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+
+[;1m01-haskell.hs:10:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Integral (t -> a)
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        getFuel :: forall t a.
+                   (Integral (t -> a), Num t, Ord a) =>
+                   (t -> a) -> a -> a[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m10 |[0m[0m [;1m[31mgetFuel mass = max $ (fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+
+[;1m01-haskell.hs:12:16: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Int’ with actual type ‘a0 -> a0’
+    • In the expression: max $ (fuel mass) 0
+      In an equation for ‘getFuel’: getFuel mass = max $ (fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m12 |[0m[0m getFuel mass = [;1m[31mmax $ (fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m                ^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:12:22: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Integer -> a0’
+                  with actual type ‘Int’
+    • The function ‘fuel’ is applied to two arguments,
+      but its type ‘Int -> Int’ has only one
+      In the second argument of ‘($)’, namely ‘(fuel mass) 0’
+      In the expression: max $ (fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m12 |[0m[0m getFuel mass = max $ [;1m[31m(fuel mass) 0[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m                      ^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+"
+^C
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs [C[C[1@c[1@a[1@t[1@ [1@p[1@u[8@zzle.dat[1@ [1@|[1@ 
+"139193"
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:5:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘(String -> IO ())
+                                    -> String -> IO b’
+                  with actual type ‘IO ()’
+    • The function ‘putStrLn’ is applied to three arguments,
+      but its type ‘String -> IO ()’ has only one
+      In the expression:
+        putStrLn
+          (show (last allLines)) putStrLn (show (last $ init allLines))
+      In a stmt of a 'do' block:
+        let allLines = lines contents
+        in
+          putStrLn
+            (show (last allLines)) putStrLn (show (last $ init allLines))
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:1:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m             [;1m[31mputStrLn(show(last allLines))[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^...[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs [C[C[18Prunghc 01-haskell.hs[C[Ccat puzzle.dat | runghc 01-haskell.hs 
+"112322"
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:5:31: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘(String -> IO ()) -> String -> a0’
+                  with actual type ‘[Char]’
+    • The function ‘last’ is applied to two arguments,
+      but its type ‘[String] -> [Char]’ has only one
+      In the expression: last allLines putStrLn
+      In the second argument of ‘($)’, namely
+        ‘last allLines putStrLn $ show $ last $ init allLines’[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m             putStrLn $ show $ [;1m[31mlast allLines[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m                               ^^^^^^^^^^^^^...[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+"139193"
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghic[K[Kci
+GHCi, version 8.4.2: http://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> getContents "puzzle.dat"[24DcgetContents "puzzle.dat"[24DogetContents "puzzle.dat"[24DngetContents "puzzle.dat"[24DtgetContents "puzzle.dat"[24DegetContents "puzzle.dat"[24DngetContents "puzzle.dat"[24DtsgetContents "puzzle.dat"[24D getContents "puzzle.dat"[24D<getContents "puzzle.dat"[24D-getContents "puzzle.dat"[24D getContents "puzzle.dat"[24D
+[?1l>
+[;1m<interactive>:1:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[Char] -> IO a0’
+                  with actual type ‘IO String’
+    • The function ‘getContents’ is applied to one argument,
+      but its type ‘IO String’ has none
+      In the first argument of ‘GHC.GHCi.ghciStepIO ::
+                                  forall a. IO a -> IO a’, namely
+        ‘(getContents "puzzle.dat")’
+      In a stmt of an interactive GHCi command:
+        contents <- GHC.GHCi.ghciStepIO :: forall a. IO a -> IO a
+                    (getContents "puzzle.dat")[0m[0m
+[0m[0m[0m[?1h=Prelude> contents <- getContents "puzzle.dat"
+[?1l>
+[;1m<interactive>:2:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[Char] -> IO a0’
+                  with actual type ‘IO String’
+    • The function ‘getContents’ is applied to one argument,
+      but its type ‘IO String’ has none
+      In the first argument of ‘GHC.GHCi.ghciStepIO ::
+                                  forall a. IO a -> IO a’, namely
+        ‘(getContents "puzzle.dat")’
+      In a stmt of an interactive GHCi command:
+        contents <- GHC.GHCi.ghciStepIO :: forall a. IO a -> IO a
+                    (getContents "puzzle.dat")[0m[0m
+[0m[0m[0m[?1h=Prelude> 
+[?1l>Leaving GHCi.
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghci[C[Ccat puzzle.dat | runghc 01-haskell.hs [C[C[18Prunghc 01-haskell.hs[C[Ccat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:5:33: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m parse error on input ‘in’[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m         allFueld = [ x::Int | x [;1m[31min[0m[0m allLines ]
+[;1m[34m  |[0m[0m[;1m[31m                                 ^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:3:5: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    The last statement in a 'do' block must be an expression
+      let allLines = lines contents
+          allFueld = [x :: Int | x <- allLines][0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m3 |[0m[0m     [;1m[31mlet[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m     ^^^...[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:8:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    parse error (possibly incorrect indentation or mismatched brackets)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m8 |[0m[0m [;1m[31mf[0m[0muel :: Int -> Int
+[;1m[34m  |[0m[0m[;1m[31m ^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:8:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    parse error (possibly incorrect indentation or mismatched brackets)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m8 |[0m[0m [;1m[31mf[0m[0muel :: Int -> Int
+[;1m[34m  |[0m[0m[;1m[31m ^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:5:22: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘[Char]’ with ‘Int’
+      Expected type: Int
+        Actual type: String
+    • In the expression: x :: Int
+      In the expression: [x :: Int | x <- allLines]
+      In an equation for ‘allFuels’:
+          allFuels = [x :: Int | x <- allLines][0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m5 |[0m[0m         allFuels = [ [;1m[31mx[0m[0m::Int | x <- allLines ]
+[;1m[34m  |[0m[0m[;1m[31m                      ^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:7:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘a0 -> String’ with ‘IO b’
+      Expected type: Int -> IO b
+        Actual type: Int -> a0 -> String
+    • The first argument of ($) takes one argument,
+      but its type ‘Int -> a0 -> String’ has only two
+      In the expression:
+        return show $ sum [getFuelRec (x) | x <- allFuels]
+      In a stmt of a 'do' block:
+        let
+          allLines = lines contents
+          allFuels = [... | x <- allLines]
+        in return show $ sum [getFuelRec (x) | x <- allFuels]
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:1:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m7 |[0m[0m             [;1m[31mreturn show $ sum [ getFuelRec(x) | x <- allFuels ][0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:7:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘a0 -> String’ with ‘IO b’
+      Expected type: Int -> IO b
+        Actual type: Int -> a0 -> String
+    • The first argument of ($) takes one argument,
+      but its type ‘Int -> a0 -> String’ has only two
+      In the expression:
+        return show $ sum [getFuelRec (x) | x <- allFuels]
+      In a stmt of a 'do' block:
+        let
+          allLines = lines contents
+          allFuels = [read line | line <- allLines]
+        in return show $ sum [getFuelRec (x) | x <- allFuels]
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:1:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m7 |[0m[0m             [;1m[31mreturn show $ sum [ getFuelRec(x) | x <- allFuels ][0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+
+[;1m01-haskell.hs:7:13: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘t0 Integer -> Integer’ with ‘IO b’
+      Expected type: [Int] -> IO b
+        Actual type: [Int] -> t0 Integer -> Integer
+    • The function ‘return’ is applied to two arguments,
+      but its type ‘(t0 Integer -> Integer)
+                    -> [Int] -> t0 Integer -> Integer’
+      has only three
+      In the expression: return sum ([getFuelRec (x) | x <- allFuels])
+      In a stmt of a 'do' block:
+        let
+          allLines = lines contents
+          allFuels = [read line | line <- allLines]
+        in return sum ([getFuelRec (x) | x <- allFuels])
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:1:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m7 |[0m[0m             [;1m[31mreturn sum ([ getFuelRec(x) | x <- allFuels ])[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | runghc 01-haskell.hs 
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ [K$ ghci
+GHCi, version 8.4.2: http://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> digitToInt "5"
+[?1l>
+[;1m<interactive>:1:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Variable not in scope: digitToInt :: [Char] -> t[0m[0m
+[0m[0m[0m[?1h=Prelude> Prelude> Prelude> import d[KDat.[Ka;[K.Char
+[?1l>[?1h=Prelude Data.Char> import Data.Char[16DdigitToInt "5"[K
+[?1l>
+[;1m<interactive>:3:12: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Char’ with actual type ‘[Char]’
+    • In the first argument of ‘digitToInt’, namely ‘"5"’
+      In the expression: digitToInt "5"
+      In an equation for ‘it’: it = digitToInt "5"[0m[0m
+[0m[0m[0m[?1h=Prelude Data.Char> digitToInt "5"[K[K[K'5'
+[?1l>5
+[?1h=Prelude Data.Char> map Digit[9D[Kmap digitToInt "12345"
+[?1l>[1,2,3,4,5]
+[?1h=Prelude Data.Char> tkae 3 [K[K[K[K[K[Kage 3 [7D[Ktake 3 $ iterate (10*) 1
+[?1l>[1,10,100]
+[?1h=Prelude Data.Char> :l 01-
+01-haskell.o    01-julia.ipynb  01-haskell      01-haskell.hs   01-haskell.hi
+Prelude Data.Char> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+
+[;1m01-haskell.hs:12:22: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Variable not in scope: digitToInt :: Char -> b[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m12 |[0m[0m         digits = map [;1m[31mdigitToInt[0m[0m xs
+[;1m[34m   |[0m[0m[;1m[31m                      ^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:16:9: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Variable not in scope:
+        zipwith
+          :: (Integer -> Integer -> Integer) -> [a0] -> [Integer] -> Int
+    • Perhaps you meant one of these:
+        ‘zipWith’ (imported from Prelude),
+        ‘zipWith3’ (imported from Prelude)[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m16 |[0m[0m         [;1m[31mzipwith[0m[0m (*) little powers    
+[;1m[34m   |[0m[0m[;1m[31m         ^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude Data.Char> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+
+[;1m01-haskell.hs:12:22: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Variable not in scope: digitToInt :: Char -> b[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m12 |[0m[0m         digits = map [;1m[31mdigitToInt[0m[0m xs
+[;1m[34m   |[0m[0m[;1m[31m                      ^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:16:9: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Int’ with actual type ‘[Integer]’
+    • In the expression: zipWith (*) little powers
+      In the expression:
+        let
+          digits = map digitToInt xs
+          little = reverse digits
+          powers = iterate (10 *) 1
+        in zipWith (*) little powers
+      In an equation for ‘lineToInt’:
+          lineToInt xs
+            = let
+                digits = map digitToInt xs
+                little = reverse digits
+                ....
+              in zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m16 |[0m[0m         [;1m[31mzipWith (*) little powers[0m[0m    
+[;1m[34m   |[0m[0m[;1m[31m         ^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude Data.Char> :t zipWith
+[?1l>zipWith :: (a -> b -> c) -> [a] -> [b] -> [c]
+[?1h=Prelude Data.Char> :t zipWith[9Dl 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+
+[;1m01-haskell.hs:18:9: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Int’ with actual type ‘[Int]’
+    • In the expression: zipWith (*) little powers
+      In the expression:
+        let
+          digits = map digitToInt xs
+          little = reverse digits
+          powers = iterate (10 *) 1
+        in zipWith (*) little powers
+      In an equation for ‘lineToInt’:
+          lineToInt xs
+            = let
+                digits = map digitToInt xs
+                little = reverse digits
+                ....
+              in zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m18 |[0m[0m         [;1m[31mzipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m         ^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude Data.Char> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+
+[;1m01-haskell.hs:18:9: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Int’
+                  with actual type ‘([Int], [Integer])’
+    • In the expression: (little, powers)
+      In the expression:
+        let
+          digits = map digitToInt xs
+          little = reverse digits
+          powers = iterate (10 *) 1
+        in (little, powers)
+      In an equation for ‘lineToInt’:
+          lineToInt xs
+            = let
+                digits = map digitToInt xs
+                little = reverse digits
+                ....
+              in (little, powers)[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m18 |[0m[0m         [;1m[31m(little, powers)[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m         ^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude Data.Char> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+
+[;1m01-haskell.hs:13:22: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Variable not in scope: digitToInt :: Char -> b[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m13 |[0m[0m         digits = map [;1m[31mdigitToInt[0m[0m xs
+[;1m[34m   |[0m[0m[;1m[31m                      ^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:17:15: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘[c0]’ with ‘Int’
+      Expected type: [c0] -> [c0] -> Int
+        Actual type: [c0] -> [c0] -> [c0]
+    • In the second argument of ‘(.)’, namely ‘zipWith (*)’
+      In the expression: sum . zipWith (*)
+      In the expression: sum . zipWith (*) $ little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m17 |[0m[0m         sum . [;1m[31mzipWith (*)[0m[0m $ little powers    
+[;1m[34m   |[0m[0m[;1m[31m               ^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:17:29: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[Integer] -> [c0]’
+                  with actual type ‘[a0]’
+    • The function ‘little’ is applied to one argument,
+      but its type ‘[a0]’ has none
+      In the second argument of ‘($)’, namely ‘little powers’
+      In the expression: sum . zipWith (*) $ little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m17 |[0m[0m         sum . zipWith (*) $ [;1m[31mlittle powers[0m[0m    
+[;1m[34m   |[0m[0m[;1m[31m                             ^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude Data.Char> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+
+[;1m01-haskell.hs:13:22: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Variable not in scope: digitToInt :: Char -> b[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m13 |[0m[0m         digits = map [;1m[31mdigitToInt[0m[0m xs
+[;1m[34m   |[0m[0m[;1m[31m                      ^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:17:9: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Int’
+                  with actual type ‘a0 -> Integer’
+    • Probable cause: ‘(.)’ is applied to too few arguments
+      In the expression: sum . zipWith (*) little powers
+      In the expression:
+        let
+          digits = map digitToInt xs
+          little = reverse digits
+          powers = iterate (10 *) 1
+        in sum . zipWith (*) little powers
+      In an equation for ‘lineToInt’:
+          lineToInt xs
+            = let
+                digits = map digitToInt xs
+                little = reverse digits
+                ....
+              in sum . zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m17 |[0m[0m         [;1m[31msum . zipWith (*) little powers[0m[0m    
+[;1m[34m   |[0m[0m[;1m[31m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:17:15: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘a0 -> t0 Integer’
+                  with actual type ‘[Integer]’
+    • Possible cause: ‘zipWith’ is applied to too many arguments
+      In the second argument of ‘(.)’, namely ‘zipWith (*) little powers’
+      In the expression: sum . zipWith (*) little powers
+      In the expression:
+        let
+          digits = map digitToInt xs
+          little = reverse digits
+          powers = iterate (10 *) 1
+        in sum . zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m17 |[0m[0m         sum . [;1m[31mzipWith (*) little powers[0m[0m    
+[;1m[34m   |[0m[0m[;1m[31m               ^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude Data.Char> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+
+[;1m01-haskell.hs:13:22: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Variable not in scope: digitToInt :: Char -> b[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m13 |[0m[0m         digits = map [;1m[31mdigitToInt[0m[0m xs
+[;1m[34m   |[0m[0m[;1m[31m                      ^^^^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude Data.Char> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+
+[;1m01-haskell.hs:1:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Parse error: module header, import declaration
+    or top-level declaration expected.[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m1 |[0m[0m [;1m[31mImport Data.Char[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m ^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude Data.Char> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main Data.Char> lineToInt "12345"
+[?1l>12345
+[?1h=*Main Data.Char> lineToInt "12345"[17D:l 01-haskell.hs[K
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main Data.Char> lineToINt[K[Knt "-163"
+[?1l>*** Exception: Char.digitToInt: not a digit '-'
+[?1h=*Main Data.Char> lineToInt "1563"
+[?1l>1563
+[?1h=*Main Data.Char> 
+[?1l>[?1h=*Main Data.Char> 
+[?1l>Leaving GHCi.
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc -10-[K[K[K[K01-haskell.hs
+
+[;1m01-haskell.hs:8:5: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m parse error on input ‘in’[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m8 |[0m[0m     [;1m[31min[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m     ^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+^C
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghci
+GHCi, version 8.4.2: http://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> contents
+[?1l>[?1h=Prelude> 
+[?1l>Leaving GHCi.
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghci[C[Crunghc 01-haskell.hs
+^C
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ runghc 01-haskell.hs
+^C
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghci
+GHCi, version 8.4.2: http://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> content [Ks <- get[K[K[K[Kread[K[K[K[K readFile("[K[K "puzzle.dat"
+[?1l>[?1h=*Main> let allLines = lone[K[K[Kines contents
+[?1l>[?1h=*Main> allLines 
+[?1l>["83326","84939","135378","105431","119144","124375","138528","88896","98948","85072","112576","144497","112824","98892","81551","139462","73213","93261","130376","118425","132905","54627","134676","140435","131410","128441","96755","94866","89490","122118","106596","77531","84941","57494","97518","136224","69247","147209","92814","63436","79819","109335","85698","110103","79072","52282","73957","68668","105394","149663","91954","66479","55778","126377","75471","75662","71910","113031","133917","76043","65086","117882","134854","60690","67495","62434","67758","95329","123078","128541","108213","93543","147937","148262","56212","148586","73733","110763","149243","133232","95817","68261","123872","93764","147297","51555","110576","89485","109570","88052","132786","70585","105973","85898","149990","114463","147536","67786","139193","112322"]
+[?1h=*Main> allFuels[8D[Klet allFuels = map lineToInt all
+all       allLines
+*Main> let allFuels = map lineToInt allLines
+[?1l>[?1h=*Main> allFuels 
+[?1l>[83326,84939,135378,105431,119144,124375,138528,88896,98948,85072,112576,144497,112824,98892,81551,139462,73213,93261,130376,118425,132905,54627,134676,140435,131410,128441,96755,94866,89490,122118,106596,77531,84941,57494,97518,136224,69247,147209,92814,63436,79819,109335,85698,110103,79072,52282,73957,68668,105394,149663,91954,66479,55778,126377,75471,75662,71910,113031,133917,76043,65086,117882,134854,60690,67495,62434,67758,95329,123078,128541,108213,93543,147937,148262,56212,148586,73733,110763,149243,133232,95817,68261,123872,93764,147297,51555,110576,89485,109570,88052,132786,70585,105973,85898,149990,114463,147536,67786,139193,112322]
+[?1h=*Main> ful [K[Kel 83326
+[?1l>27773
+[?1h=*Main> getFueld [K[K .head $ allFuels els[K[K[K
+[?1l>27773
+[?1h=*Main> getFuel .head $ allFuels [3DuallFuels [9D[17DallFuels [K[9D[KgetFuelRec 83326
+[?1l>124957
+[?1h=*Main> getFuel 27773
+[?1l>9255
+[?1h=*Main> scanl [6D[K:t scanl
+[?1l>scanl :: (b -> a -> b) -> b -> [a] -> [b]
+[?1h=*Main> takewhile [K[2D[K[K[K[KWhile (>9([K[K0) $ iterate getFuel 83326
+[?1l>[83326,27773,9255,3083,1025,339,111,35,9,1]
+[?1h=*Main> a[K[ getFuelRec(x) | x <- allFuels ]
+[?1l>[124957,127377,203034,158113,178683,186528,207761,133311,148390,127575,168831,216712,169203,148306,122294,209160,109788,139859,195529,177607,199323,81910,201981,210619,197083,192628,145099,142268,134202,183145,159863,116264,127379,86209,146243,204302,103837,220779,139189,95124,119698,163968,128517,165124,118578,78392,110904,102971,158059,224460,137900,99687,83635,189533,113175,113461,107832,169515,200844,114031,97597,176790,202246,91004,101210,93619,101605,142960,184584,192777,162289,140282,221871,222359,84289,222844,110567,166111,223830,199813,143692,102359,185773,140612,220913,77302,165831,134195,164322,132046,199147,105846,158929,128815,224950,171663,221271,101646,208756,168451]
+[?1h=*Main> :l 01-haskell.hs
+[?1l>[1 of 1] Compiling Main             ( 01-haskell.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :l 01-haskell.hs[16D[ getFuelRec(x) | x <- allFuels ]
+[?1l>
+[;1m<interactive>:15:24: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Variable not in scope: allFuels :: [Int][0m[0m
+[0m[0m[0m[?1h=*Main> [ getFuelRec(x) | x <- allFuels ][33D:l 01-haskell.hs[K[16D[ getFuelRec(x) | x <- allFuels ][33DtakeWhile (>0) $ iterate getFuel 83326[38D:t scanl[K[8DgetFuel 27773[6DRec 83326[9D .head $ allFuels [25Dfuel 83326[K[10DallFuels [K[9Dlet allFuels = map lineToInt allLines[37DallLines [K[9Dlet allLines = lines contents[29Dcontents <- readFile "puzzle.dat"
+[?1l>[?1h=*Main> contents <- readFile "puzzle.dat"[33D[ getFuelRec(x) | x <- allFuels ][33D:l 01-haskell.hs[K[16D[ getFuelRec(x) | x <- allFuels ][33DtakeWhile (>0) $ iterate getFuel 83326[38D:t scanl[K[8DgetFuel 27773[6DRec 83326[9D .head $ allFuels [25Dfuel 83326[K[10DallFuels [K[9Dlet allFuels = map lineToInt allLines[37DallLines [K[9Dlet allLines = lines contents
+[?1l>[?1h=*Main> let allFuelds = map lineToInt allLines
+[?1l>[?1h=*Main> [ getFueld[KRec([K x | x <- allFuels ]
+[?1l>
+[;1m<interactive>:19:23: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Variable not in scope: allFuels :: [Int]
+    • Perhaps you meant ‘allFuelds’ (line 18)[0m[0m
+[0m[0m[0m[?1h=*Main> [ getFuelRec x | x <- allFuels ]ds ][3D
+[?1l>[41631,42438,67656,52682,59539,62153,69233,44415,49442,42503,56255,72215,56379,49414,40743,69698,36575,46598,65153,59182,66418,27283,67305,70184,65673,64187,48344,47402,44712,61027,53267,38733,42438,28715,48725,68078,34590,73570,46375,31688,39879,54633,42819,55021,39506,26110,36947,34303,52665,74797,45946,33208,27857,63156,37704,37799,35922,56484,66927,37988,32511,58908,67392,30314,33715,31185,33847,47631,61506,64236,54076,46739,73934,74097,28077,74258,36834,55348,74587,66581,47875,34098,61901,46848,73616,25747,55255,44710,54752,43994,66361,35261,52956,42917,74960,57200,73735,33860,69563,56129]
+[?1h=*Main> [ getFuelRec x | x <- allFuelds ][33Ds[ getFuelRec x | x <- allFuelds ][33Du[ getFuelRec x | x <- allFuelds ][33Dm[ getFuelRec x | x <- allFuelds ][33D [ getFuelRec x | x <- allFuelds ][33D
+[?1l>5109803
+[?1h=*Main> :q[K[K
+[?1l>Leaving GHCi.
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ./01-haskell 
+^C
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ./01-haskell [C[Cghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[C[8P./01-haskell 
+^C
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ./01-haskell [C[Cghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[C[8P./01-haskell 
+^C
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat | 01-h[K[K[K[K[K./01-haskell 
+5109803
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat |./01-haskell [C[C[16P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[Ccat puzzle.dat |./01-haskell 
+3408471
+5109803
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat |./01-haskell [C[C[8Pghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[Ccat puzzle.dat |./01-haskell 
+3408471
+5109803
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat |./01-haskell [C[C[8Pghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+
+[;1m01-haskell.hs:16:9: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Integer’ with actual type ‘Int’
+    • In the expression: sum $ zipWith (*) little powers
+      In the expression:
+        let
+          digits = map digitToInt xs
+          little = reverse digits
+          powers = iterate (10 *) 1
+        in sum $ zipWith (*) little powers
+      In an equation for ‘lineToInt’:
+          lineToInt xs
+            = let
+                digits = map digitToInt xs
+                little = reverse digits
+                ....
+              in sum $ zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m16 |[0m[0m         [;1m[31msum $ zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[Ccat puzzle.dat |./01-haskell [C[C[8Pghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[Ccat puzzle.dat |./01-haskell 
+3408471
+5109803
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat |./01-haskell [C[C[8Pghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[Ccat puzzle.dat |./01-haskell 
+3408471
+5109803
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ cat puzzle.dat |./01-haskell [C[C[1@t[1@i[1@m[1@e[1@ 
+3408471
+5109803
+
+real	0m0.011s
+user	0m0.003s
+sys	0m0.006s
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ time cat puzzle.dat |./01-haskell [C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[8Pghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+
+[;1m01-haskell.hs:7:5: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘IO a1’
+                  with actual type ‘a0 -> IO ()’
+    • Probable cause: ‘(.)’ is applied to too few arguments
+      In a stmt of a 'do' block: putStrLn . show . aoc01'1 allFuels
+      In the expression:
+        do contents <- getContents
+           let allLines = lines contents
+               allFuels = map lineToInt allLines
+           putStrLn . show . aoc01'1 allFuels
+           putStrLn . show . aoc01'2 allFuels
+      In an equation for ‘main’:
+          main
+            = do contents <- getContents
+                 let allLines = ...
+                     ....
+                 putStrLn . show . aoc01'1 allFuels
+                 ....[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m7 |[0m[0m     [;1m[31mputStrLn . show . aoc01'1 allFuels[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:7:23: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘a0 -> a3’ with actual type ‘Int’
+    • Possible cause: ‘aoc01'1’ is applied to too many arguments
+      In the second argument of ‘(.)’, namely ‘aoc01'1 allFuels’
+      In the second argument of ‘(.)’, namely ‘show . aoc01'1 allFuels’
+      In a stmt of a 'do' block: putStrLn . show . aoc01'1 allFuels[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m7 |[0m[0m     putStrLn . show . [;1m[31maoc01'1 allFuels[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m                       ^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:8:5: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘IO b’
+                  with actual type ‘a2 -> IO ()’
+    • Probable cause: ‘(.)’ is applied to too few arguments
+      In a stmt of a 'do' block: putStrLn . show . aoc01'2 allFuels
+      In the expression:
+        do contents <- getContents
+           let allLines = lines contents
+               allFuels = map lineToInt allLines
+           putStrLn . show . aoc01'1 allFuels
+           putStrLn . show . aoc01'2 allFuels
+      In an equation for ‘main’:
+          main
+            = do contents <- getContents
+                 let allLines = ...
+                     ....
+                 putStrLn . show . aoc01'1 allFuels
+                 ....
+    • Relevant bindings include
+        main :: IO b (bound at 01-haskell.hs:3:1)[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m8 |[0m[0m     [;1m[31mputStrLn . show . aoc01'2 allFuels[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:8:23: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘a2 -> a4’ with actual type ‘Int’
+    • Possible cause: ‘aoc01'2’ is applied to too many arguments
+      In the second argument of ‘(.)’, namely ‘aoc01'2 allFuels’
+      In the second argument of ‘(.)’, namely ‘show . aoc01'2 allFuels’
+      In a stmt of a 'do' block: putStrLn . show . aoc01'2 allFuels[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m8 |[0m[0m     putStrLn . show . [;1m[31maoc01'2 allFuels[0m[0m
+[;1m[34m  |[0m[0m[;1m[31m                       ^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[Ctime cat puzzle.dat |./01-haskell [C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[5@time [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+3408471
+5109803
+
+real	0m0.010s
+user	0m0.005s
+sys	0m0.004s
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ time cat puzzle.dat |./01-haskell [C[C[13Pghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+
+[;1m01-haskell.hs:21:15: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match type ‘[c0]’ with ‘Int’
+      Expected type: [c0] -> [c0] -> Int
+        Actual type: [c0] -> [c0] -> [c0]
+    • In the second argument of ‘(.)’, namely ‘zipWith (*)’
+      In the expression: sum . zipWith (*)
+      In the expression: sum . zipWith (*) $ little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m21 |[0m[0m         sum . [;1m[31mzipWith (*)[0m[0m $ little powers
+[;1m[34m   |[0m[0m[;1m[31m               ^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:21:29: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[Integer] -> [c0]’
+                  with actual type ‘[Int]’
+    • The function ‘little’ is applied to one argument,
+      but its type ‘[Int]’ has none
+      In the second argument of ‘($)’, namely ‘little powers’
+      In the expression: sum . zipWith (*) $ little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m21 |[0m[0m         sum . zipWith (*) $ [;1m[31mlittle powers[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m                             ^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+
+[;1m01-haskell.hs:21:9: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Int’
+                  with actual type ‘a0 -> Integer’
+    • Probable cause: ‘(.)’ is applied to too few arguments
+      In the expression: sum . zipWith (*) little powers
+      In the expression:
+        let
+          digits = map digitToInt xs
+          little = reverse digits
+          powers = iterate (10 *) 1
+        in sum . zipWith (*) little powers
+      In an equation for ‘lineToInt’:
+          lineToInt xs
+            = let
+                digits = map digitToInt xs
+                little = reverse digits
+                ....
+              in sum . zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m21 |[0m[0m         [;1m[31msum . zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m
+[;1m01-haskell.hs:21:15: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘a0 -> t0 Integer’
+                  with actual type ‘[Int]’
+    • Possible cause: ‘zipWith’ is applied to too many arguments
+      In the second argument of ‘(.)’, namely ‘zipWith (*) little powers’
+      In the expression: sum . zipWith (*) little powers
+      In the expression:
+        let
+          digits = map digitToInt xs
+          little = reverse digits
+          powers = iterate (10 *) 1
+        in sum . zipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m21 |[0m[0m         sum . [;1m[31mzipWith (*) little powers[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m               ^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0m]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell
+[1 of 1] Compiling Main             ( 01-haskell.hs, 01-haskell.o )
+Linking 01-haskell ...
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ghc --make 01-haskell[C[Ctime cat puzzle.dat |./01-haskell 
+3408471
+5109803
+
+real	0m0.078s
+user	0m0.000s
+sys	0m0.008s
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ time cat puzzle.dat |./01-haskell 
+3408471
+5109803
+
+real	0m0.005s
+user	0m0.007s
+sys	0m0.001s
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ time cat puzzle.dat |./01-haskell 
+3408471
+5109803
+
+real	0m0.005s
+user	0m0.000s
+sys	0m0.007s
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ time cat puzzle.dat |./01-haskell 
+3408471
+5109803
+
+real	0m0.006s
+user	0m0.002s
+sys	0m0.005s
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ Agent pid 404
+Enter passphrase for /home/user/.ssh/id_rsa: Agent pid 81733
+Enter passphrase for /home/user/.ssh/id_rsa: 
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ls[Kl
+total 648
+drwxr-xr-x 2 user user      13 Mar 22 03:52 [0m[01;34m.[0m/
+drwxr-xr-x 9 user user      10 Mar 22 04:09 [01;34m..[0m/
+-rw-r--r-- 1 user user   55087 Apr 24 06:27 .01-haskell.hs-0.term
+-rw-r--r-- 1 user user    1838 Mar 25 04:48 .01-julia.ipynb.sage-jupyter2
+-rw-r--r-- 1 user user    6259 Feb 29 19:12 .02-julia.ipynb.sage-jupyter2
+-rw-r--r-- 1 user user  312407 Apr  3 15:32 .2020-03-20-215505.term-0.term
+-rwxr-xr-x 1 user user 1085928 Mar 22 03:52 [01;32m01-haskell[0m*
+-rw-r--r-- 1 user user    1192 Mar 21 04:05 01-haskell.hi
+-rw-r--r-- 1 user user     666 Mar 22 03:52 01-haskell.hs
+-rw-r--r-- 1 user user   15280 Mar 22 03:52 01-haskell.o
+-rw-r--r-- 1 user user    2874 Mar 19 04:55 01-julia.ipynb
+-rw-r--r-- 1 user user       0 Apr  3 15:32 2020-03-20-215505.term
+-rw-r--r-- 1 user user     649 Feb 29 16:29 puzzle.dat
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ ll -ahj[K[K[Kh
+total 648K
+drwxr-xr-x 2 user user   13 Mar 22 03:52 [0m[01;34m.[0m/
+drwxr-xr-x 9 user user   10 Mar 22 04:09 [01;34m..[0m/
+-rw-r--r-- 1 user user  54K Apr 24 06:27 .01-haskell.hs-0.term
+-rw-r--r-- 1 user user 1.8K Mar 25 04:48 .01-julia.ipynb.sage-jupyter2
+-rw-r--r-- 1 user user 6.2K Feb 29 19:12 .02-julia.ipynb.sage-jupyter2
+-rw-r--r-- 1 user user 306K Apr  3 15:32 .2020-03-20-215505.term-0.term
+-rwxr-xr-x 1 user user 1.1M Mar 22 03:52 [01;32m01-haskell[0m*
+-rw-r--r-- 1 user user 1.2K Mar 21 04:05 01-haskell.hi
+-rw-r--r-- 1 user user  666 Mar 22 03:52 01-haskell.hs
+-rw-r--r-- 1 user user  15K Mar 22 03:52 01-haskell.o
+-rw-r--r-- 1 user user 2.9K Mar 19 04:55 01-julia.ipynb
+-rw-r--r-- 1 user user    0 Apr  3 15:32 2020-03-20-215505.term
+-rw-r--r-- 1 user user  649 Feb 29 16:29 puzzle.dat
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ type ll
+ll is aliased to `ls -alF'
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ time 01-hak[C[C[Ktime ./01-haskell 
+83326
+84939
+135378
+105431
+119144
+124375
+138528
+88896
+98948
+85072
+112576
+144497
+112824
+98892
+81551
+139462
+73213
+93261
+130376
+118425
+132905
+54627
+134676
+140435
+131410
+128441
+96755
+94866
+89490
+122118
+106596
+77531
+84941
+57494
+97518
+136224
+69247
+147209
+92814
+63436
+79819
+109335
+85698
+110103
+79072
+52282
+73957
+68668
+105394
+149663
+91954
+66479
+55778
+126377
+75471
+75662
+71910
+113031
+133917
+76043
+65086
+117882
+134854
+60690
+67495
+62434
+67758
+95329
+123078
+128541
+108213
+93543
+147937
+148262
+56212
+148586
+73733
+110763
+149243
+133232
+95817
+68261
+123872
+93764
+147297
+51555
+110576
+89485
+109570
+88052
+132786
+70585
+105973
+85898
+149990
+114463
+147536
+67786
+139193
+112322
+
+3408471
+01-haskell: Prelude.tail: empty list
+
+real	0m29.672s
+user	0m0.001s
+sys	0m0.013s
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ time ./01-haskell 
+83326
+84939
+135378
+105431
+119144
+124375
+138528
+88896
+98948
+85072
+112576
+144497
+112824
+98892
+81551
+139462
+73213
+93261
+130376
+118425
+132905
+54627
+134676
+140435
+131410
+128441
+96755
+94866
+89490
+122118
+106596
+77531
+84941
+57494
+97518
+136224
+69247
+147209
+92814
+63436
+79819
+109335
+85698
+110103
+79072
+52282
+73957
+68668
+105394
+149663
+91954
+66479
+55778
+126377
+75471
+75662
+71910
+113031
+133917
+76043
+65086
+117882
+134854
+60690
+67495
+62434
+67758
+95329
+123078
+128541
+108213
+93543
+147937
+148262
+56212
+148586
+73733
+110763
+149243
+133232
+95817
+68261
+123872
+93764
+147297
+51555
+110576
+89485
+109570
+88052
+132786
+70585
+105973
+85898
+149990
+114463
+147536
+67786
+139193
+112322
+3408471
+5109803
+
+real	0m3.216s
+user	0m0.001s
+sys	0m0.008s
+]0;~/aoc/2019/01[01;34m~/aoc/2019/01[00m
+$ h[Kghci
+GHCi, version 8.4.2: http://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> :t u[KJust Just 6
+[?1l>
+[;1m<interactive>:1:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Integer -> t’
+                  with actual type ‘Maybe (a0 -> Maybe a0)’
+    • The function ‘Just’ is applied to two arguments,
+      but its type ‘(a0 -> Maybe a0) -> Maybe (a0 -> Maybe a0)’
+      has only one
+      In the expression: Just Just 6[0m[0m
+[0m[0m[0m[?1h=Prelude> :t Just (j[KJust 6))[K
+[?1l>Just (Just 6) :: Num a => Maybe (Maybe a)
+[?1h=Prelude> 

@@ -1,0 +1,42 @@
+Agent pid 182115
+Enter passphrase for /home/user/.ssh/id_rsa: 
+]0;~/aoc/2019/03[01;34m~/aoc/2019/03[00m
+$ ghci
+GHCi, version 8.4.2: http://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> :l 03-
+03-haskell.hs   03-julia.ipynb
+Prelude> :l 03-haskell.hs 
+[?1l>[1 of 1] Compiling Main             ( 03-haskell.hs, interpreted )
+
+[;1m03-haskell.hs:1:30: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m parse error on input ‘::’[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m1 |[0m[0m Data Segment = Segment { dir [;1m[31m::[0m[0m Direction,
+[;1m[34m  |[0m[0m[;1m[31m                              ^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude> :l 03-haskell.hs 
+[?1l>[1 of 1] Compiling Main             ( 03-haskell.hs, interpreted )
+
+[;1m03-haskell.hs:1:22: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m parse error on input ‘|’[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m1 |[0m[0m Data Direction = 'L' [;1m[31m|[0m[0m 'R' | 'U' | 'D'
+[;1m[34m  |[0m[0m[;1m[31m                      ^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude> Agent pid 403
+Enter passphrase for /home/user/.ssh/id_rsa: 
+Bad passphrase, try again for /home/user/.ssh/id_rsa: 
+
+]0;~/aoc/2019/03[01;34m~/aoc/2019/03[00m
+$ ghci
+GHCi, version 8.4.2: http://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> :l 03-
+03-haskell.hs   03-julia.ipynb
+Prelude> :l 03-haskell.hs 
+[?1l>[1 of 1] Compiling Main             ( 03-haskell.hs, interpreted )
+
+[;1m03-haskell.hs:1:20: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m parse error on input ‘|’[0m[0m
+[;1m[34m  |[0m[0m
+[;1m[34m1 |[0m[0m Data Direction = L [;1m[31m|[0m[0m R | D | U
+[;1m[34m  |[0m[0m[;1m[31m                    ^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude> Agent pid 105343
+Enter passphrase for /home/user/.ssh/id_rsa: 
