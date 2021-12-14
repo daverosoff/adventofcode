@@ -1,80 +1,151 @@
-import time
+from collections import defaultdict
 
-class Puzzle:
+def get_puzzle(st):
+    with open(st, 'r') as file:
+        lines = file.readlines()
+    return lines
 
-  def __init__(self, filename="input"):
-    with open(filename, 'r') as f:
-      self.input = f.read()
-    self.lines = [line for line in self.input.split("\n") if line]
-    self.paragraphs = [graf for graf in self.input.split("\n\n") if graf]
-
-  def part_one(self):
-    raise NotImplementedError
-
-  def part_two(self):
-    raise NotImplementedError
-
-class Puzzle14(Puzzle):
-
-  def __init__(self, filename="input"):
-    super().__init__(filename)
-    self.mem = {}
-    self.mask = self.lines[0]
-    self.pc = 1
-
-  def fetch(self, address):
-    if address in self.mem.keys():
-      return self.mem[address]
+# class
+def parse(inst):
+    if inst[:3] == 'mem':
+        open_ = 3
+        close = inst.find(']', 4)
+        assert(close >= 0)
+        location = int(inst[4:close])
+        value = int(inst.split()[-1])
+        return 'mem', location, value
+    elif inst[:4] == 'mask':
+        return 'mask', inst.split()[-1]
     else:
-      raise ValueError
+        raise NotImplementedError(f"Bad instruction: {inst}")
 
-  def apply_mask(self, value):
-    masked = value
-    for place, bit in enumerate(self.mask):
-      if bit == '1':
-        masked |= 2**(len(self.mask) - 1 - place)
-      if bit == '0':
-        masked &= 2**36 - 1 - 2**(len(self.mask) - 1 - place)
-    return masked
+class Part1:
+    def __init__(self, st):
+        self.program = get_puzzle(st)
+        # static analysis
+        # need : max of all mem locations (for length of list)
+        # max_mem = 0
+        # mem_locs = []
+        # for inst in self.program:
+        #     ip = parse(inst)
+        #     if ip[0] == 'mask':
+        #         self.mask = list(ip[1])
+        #     if ip[0] == 'mem':
+        #         if ip[1] > max_mem:
+        #             max_mem = ip[1]
+        #         mem_locs.append(ip[1])
+        # max_mem = max(mem_locs) + 1
+        # for inst in self.program:
+        #     ip = parse(inst)
+        #     if ip[0] == 'mask':
+        #         self.mask = list(ip[1])
+        #     elif ip[0] == 'mem':
+        #         locations = self.generate_locations(self.to_big_endian(ip[1]))
+        #         newmax = max(locations)
+        #         if newmax > max_mem:
+        #             max_mem = newmax + 1
+        self.memory = defaultdict(int)
+        self.mask = list(parse(self.program[0])[1])
 
-  def apply_mask_two(self, value, values_rec = []):
-    for place, bit in enumerate(self.mask):
-      if bit == '1':
-        masked |= 2**(len(self.mask) - 1 - place)
-    place = self.mask.find('X')
-        with_zero = 2**36 - 1 - 2**(len(self.mask) - 1 - place)
-        with_one  = 2**(len(self.mask) - 1 - place)
-        values_rec.append(with_zero)
-        values_rec.append(with_one)
+    def to_big_endian(self, value):
+        value_stack = []
+        while value > 0:
+            value_stack.append(value % 2)
+            value //= 2
+        while len(value_stack) < 36:
+            value_stack.append(0)
+        value_lst = []
+        while len(value_stack) > 0:
+            value_lst.append(value_stack.pop())
+        return value_lst
 
+    def from_big_endian(self, bits):
+        value = 0
+        bits = bits[::-1]
+        for i, ch in enumerate(bits):
+            value += int(ch) * 2**i
+        return value
 
-  def part_one(self):
-    while self.pc < len(self.lines):
-      current_line = self.lines[self.pc]
-      if current_line[:7] == "mask = ":
-        self.mask = current_line[7:]
-        self.pc += 1
-      else:
-        address_b = current_line.find('[') + 1
-        address_e = current_line.find(']')
-        value_b = current_line.find('=') + 2
-        address = int(current_line[address_b : address_e])
-        value = int(current_line[value_b:])
-        self.mem[address] = self.apply_mask(value)
-        self.pc += 1
-    result = 0
-    for value in self.mem.values():
-      result += value
-    return result
+    def apply_mask_one(self, bits):
+        for i, ch in enumerate(self.mask):
+            if ch != 'X':
+                bits[i] = int(ch)
+        return bits
 
-  def part_two(self):
-    while self.pc < len(self.lines):
-      current_line = self.lines[self.pc]
-      if current_line[:7] == "mask = ":
-        self.mask = current_line[7:]
-        self.pc += 1
-      else:
+    def generate_locations(self, location):
+        # location has already been big-endianified
+        template = []
+        floating_positions = []
+        # generate template with some 'X' bits
+        for i, ch in enumerate(self.mask):
+            if ch == '0':
+                template.append(location[i])
+            elif ch == '1':
+                template.append(1)
+            else:
+                template.append('X')
+                floating_positions.append(i)
+        num_floats = len(floating_positions)
+        bit_patterns = []
+        for i in range(2 ** num_floats):
+            bp = list(f"{i:b}")[::-1]
+            while len(bp) < (num_floats):
+               bp.append('0')
+            bp = bp[::-1]
+            bit_patterns.append(bp)
+        addresses = []
+        for bp in bit_patterns:
+            address = template[:]
+            for i, j in enumerate(floating_positions):
+                address[j] = int(bp[i])
+            addresses.append(self.from_big_endian(address))
+        return addresses
 
+    def apply_mask_two(self, main_loc_bits, bits):
 
-p = Puzzle14("input")
-print(p.part_one())
+        for i, ch in enumerate(self.mask):
+            if ch == '0':
+                if bits[i] != main_loc_bits[i]:
+                    return False
+            elif ch == '1':
+                if bits[i] != 1:
+                    return False
+        return True
+
+    def execute_part_one(self):
+        for inst in self.program:
+            ip = parse(inst)
+            if ip[0] == 'mem':
+                self.memory[ip[1]] = self.from_big_endian(self.apply_mask_one(self.to_big_endian(ip[2])))
+            else:
+                self.mask = list(ip[1])
+
+    def answer_part_one(self):
+        self.execute_part_one()
+        return sum([int(val) for val in self.memory])
+
+    def execute_part_two(self):
+        for i, inst in enumerate(self.program):
+            # print(f"Executing instruction {i} of {len(self.program)}")
+            ip = parse(inst)
+            if ip[0] == 'mem':
+                locations = self.generate_locations(self.to_big_endian(ip[1]))
+                for location in locations:
+                    self.memory[location] = ip[2]
+                    # print(f"... writing {ip[2]} to location {location} ...")
+            else:
+                self.mask = list(ip[1])
+                # print(f"... changing mask to {ip[1]} ...")
+            # print(f"Executed instruction {i} successfully.")
+
+    def answer_part_two(self):
+        self.execute_part_two()
+        return sum([int(val) for val in self.memory.values()])
+
+p = Part1("puzzle")
+# x = p.generate_locations(p.to_big_endian(42))
+# for y in x:
+#     print(p.from_big_endian(y))
+# print(p.answer_part_one())
+print(p.answer_part_two())
+

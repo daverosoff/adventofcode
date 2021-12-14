@@ -1,104 +1,196 @@
-import numpy as np
+data1 = """L.LL.LL.LL
+LLLLLLL.LL
+L.L.L..L..
+LLLL.LL.LL
+L.LL.LL.LL
+L.LLLLL.LL
+..L.L.....
+LLLLLLLLLL
+L.LLLLLL.L
+L.LLLLL.LL"""
 
-class Puzzle:
+puzzle = """LL.LL.LLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLLLLLLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLLL.LLLL.LLLLLLLL
+.LLLL.LLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LL.LLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLL.LLLLLLLLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLLLLLLLLL.LLLLLL.LLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLL.LLLLL.LLLLLLLL
+.LLLL.LLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLL.LLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLL.LLLLLL.LLLLLL.LLLLL..LLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLL
+L.L.....LL....LLLL....L.L.L...L..L..L.LL.LL.LL.L......L.L..L...L..L.L....LL.......LLL.LL.L.
+LLLLL.LLLLLL.LLLLLL.LLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLL.
+LLLLLLLL.LLL.LLLLLL.LLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLL.L.LLLLLL
+LLLLL.LLLLLLLLLLLLL.LLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+.L........LL.L.....L.L..LLLL.LL.L........L...L.L.L......L.........L..LLLLL.......L...LL....
+LLLLLLLLLLLLLLLLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLL..LLLLLLLL.LLLLLLL.LLLLLLLLLLLLLLLLL.
+LLLLLLLLLLLL.LLLLLLLL.LLLLLLL.LLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLL.LL.LLLLLL.LLLLLLL.LLLLLLLL
+LLLLLLLLLLLL.LLLLLL.LLLLLLLLLLLLLLLLLLLLL.LLLL.LLLLLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLLLLLLLLLLLLLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLL.L.LLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLLLLLLLLLLLLLLLL.LLLLL.LLLLLLL.LLLLLLL.LLLLLL.LLLLLL.LLLLLLLL.LLLLLLL.L.LLLLLLL.LLLLLLLL
+LLLLLLL.LLLL.LLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LL.LLLLLLL.LLLLLLLLL...LLLLLL
+LLLLL.LLLLLL..LLLLL.LLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLL.LLLLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLL.LLLLLL.LLLLLLLLLLLLL.LLLLLLL.LLLLLLLLLLLLL.LLLLLLLLLLLL.LLL.LLLLLLLLL.LLLL.LLL
+.....L.......LL..LL....LLL.LL.LL.L.......LL.L....L.L.L.L.L.L..L......L........L...L..L...L.
+LLLLL.LLLLLL.LLLLLL.LLLLLLLLLLLLLLLLLLLLL.LLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.L.LLLLLLL.LLL.LLLL
+LLLLLLLLLLLL.LLLLLLLLLLLL.LLLLLLL.LLLLLLL.LLLL.LLLL.LLL.LLLLLLLLLLL.LLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLL.LLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLL.LL.LLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLL.LLLLLL.LLLLLL.LLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLL.LLLLLLLLLLLLLLLLLLLLLL.LLLL.LLLLLLLL
+...L.L...L.L....LL.L.........L.....LLL....L..L..L..L.LLL....L.LL.L.L..L.L..L..LL..L..L..LL.
+LLLLLLLLLLLL.LLLLLL.LLLLLLLLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLL.LLLLLLLLL.LL.LLLLL
+LLLLL.LLLLLLLLLLLLL..LLLL.LLLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLL.LLLLLL.LLLL.L..LLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLLLLLLLLLLL.LLLLLLL..LLLLLLLLLLLLLLLLL
+LLLLL.L.LLLL.LLLLLL.LLLLL.LLL.LLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLL.LLLLL.LLLLLLLLLLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLL.LLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+LLLLLLLLLLLLLLLLLLL.LLLLL.LLLLLLL.LLLL.LLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLL.L.LLLLLL.LLLLLL.LLLLLLLLLLLLL.LLLLLLLLLLLLL.LLLLLLL.LLL.LLLL.LLLLLLL.LLLLLLLLLLLLLLLLLL
+L.LL.L....L....LL.L...LL..........L.......L.LL...LL.LLLLL.....LLL..L.L..L......L..LL..L...L
+LLLLL.LLLLLL.LLLLLLLLLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLLLLLLLL.LLLLLLLLLLLLLLL.LLLL.LLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLL
+L.LLL.LLLLLL.LLLLLL.LLLLL.LLL.LLL.LLLLLLL.LLLLLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLL.LL.LLLLLLLL
+L.LLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLL.LLLL.LLLLLLLL.LL.LLLLLLLLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLLLLLLLLLL.
+LLLLLLLLLLLL.LLLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLL
+..L.LLL.L.L.....L...LL....L......L.L.LL..L..L.L..L....LL........LLL.L.LL.......L...L...L..L
+LLLLLLL.LLLL.LL.LLL.LLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLL.LLL.LL.LLLLLL.LLLLL.LLLLLLLLLLLLLLL.LLLLLLLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLLLLLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLL.L.LLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLL
+.LLLLLLL.LLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLLLLLLLL
+LLLLL.LLLLLL..LL..LLLLLLL.LLLLLLLLLLLLLLLLLLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLL.LLLLLL..LLLLLLLLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLL.LL.LLLLL
+LLLLL.LLLLLL.LLLLLLLLLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLL.L.LLLL.LLL
+.......L.......L.LL...L..L....L.L...L..LL.LLLL.L.L....LLL.L.LL.LL.........LL.L..L...L...L.L
+LLLL.LLLLLLLLLLLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLL.LLLLLL.LLLLLL.LLLLLLLLLLLLL.LLLLLLL.LLLL.L.LLLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLLLLLLLLLLLLLLLL.LLLLLLL.LL.LLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLL.LL.LLL.LLLLLL.LLLLL.L.LLLLLLLLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+..L...L...LLLLLLLL..L.LL...LL.L.....L.L.....L.....L...L....L.L..........L.L.....L..L..L....
+LLLLL.LLLLLL.LLLLLLLLLLLL.L.LLLLL.LLLLLLL.LLLLLLLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLL.LLLLLLL.
+LLLLL.LLLLLL.LLLLLLLLLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLLLLLLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LL.LLLLLLLLLL.LLLLL.LLLLLLLLLLLLLLL.LLLL.LLLLLLLLLL.LLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL..LLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLL.LL.LLLL.LLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLL.LLLLLL.LLLLL.LLLLLLLLLLLLLLL.LLLLLLLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLL.L.LLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLLLLLLLLL.LLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+.LL..L.......L...L.L.L......L....L.....L......L........L.L...LLLL...L.L...LLLL.......L.L...
+LLLLL.LLLLLL.LLLLLLLLLLLL.LLLLLLL.LL.LLLLLLLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL..LLLLL.LLLLLLLLLLLL.LLLLLLLLLLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLLL.LLLLLLLLLLLLLLLLLLL.LLLLLLL.LL.L.LLLLLLLL.LLLLLLL..LLLLLLLLLLLLLLLLL.LLLLLLLL
+LL.LL.LLLLLLLLLLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLL.L.LLLLL.LL.LLLLLLL.LLLLLLLLL.LLLLLLL.
+LLLLL.LLLLLL.LLLLLL..LLLL.LLLLLLL.LLLLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLL.LL.LLLLLL.LLLLLLLL
+LLLLL..LLLLLLLLLLLL.LLLLL.LLLLLLLLLLLLL.L.LLLLLLLLL..LL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLL.LL
+L...L.L..L..L..L...LLL........LLLL.LL..LL.......LLLLL.L.L..L.L.L...L.L.....LL.....LLLL..L..
+LLLLL.LLL..LLLLLLLLLLLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLL.LLLLLLLLLLLLLLL.LL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL..LL.LL.LLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLL.LLLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLLLL.LLLLLLLLLLLLLLL.LLLLLLLLL.LLLL.LL.LLLLLLLL
+LLLLL.LLLL.L.LLLLLLLLLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLLLLLLLLLLL.LLLLL.L.LLLLLL.LLLLLLLLLLL
+LLLLL.LLLLLL.LLLLLLLLLLLL.LLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLL.LLLLLL.LLLLLLLLLLLLL.LLLLLLL.LLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLL.LLLLLLLL
+LL.LL.LLLLLL.LL.LLL.LLLLLLLLLLL.L.LLLLLLL.LLLLL.LLLLLLLLLLL.LLLL.LLLLLLLLLLLLLLLLLLLLLLLLLL
+LLLLL.LL.LLL.LLLLLL.LLLLL.LLLLLLL.L.LLLLLLLLLL.LLLLLLLL.L.LLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLL.LLL.LLLLLLL.LLLLLLLLLLLL.LLLLL
+....L.L.L......LLL....L..L.L...........L.L......LLL.LL.LL.L.LL.....L.LLLL......L...L.LL.LL.
+LLLLL.LLLLLL.LLLLLL.LLLLL.LLLLLLL.LLLL.LL.LLLLLLLLLLLLL.LLLLLLLLLLL.LLLLLLLLLLLLLL.LLLLLLLL
+LLLLL.L.LLLLLLLLLLLLLLLLLLLLLLL.L.LLLLLLLLLLLL.LLLLLLLL.LLLLL.LL.LLLLLLL.LL.LLLLLL.LLLLLLLL
+LLLLLLLLLLLLLLLLL.L.LLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+LLLLL.LLLLLLLLLLLLL.LLLLLLLLLL.LL.LLLLLLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLLLLLL.LLLL.LLLLLLLL
+LLLLL.LLLLLL.L.LLLL.LLLLLLLL.LLLL.LLLLLLL.LLLLLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLL.L
+....L........L.....LLL....L......LL.L...LLLL.LLL.L.LL.......L.L.L.L......LL..L.LLLL....LL.L
+LLLLL.LLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLL.LLLLLL..LLLLLLLL.LLLLLLLLLLL
+LLLLL.LLL.LL.LLLLLL.LLLLLLLLLLLLL.LLLLLLL.LLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLL.LLLLL.LLL.LL..LLLLLLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLL.LLLLLLLL
+LLLLLLLLLLLL.LLLLLL.LLLLL.LLLLLLL.LLLLLLLLLLLL.LLLLLLLL.LLLLLLLLLLLLLLLL.LLLLLLLLL.LLLLLLLL
+LLLLL.LLLLLL.LLLLLLLLLLLL.LLLLLLLLLLLLLLL.LLLL.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLLLLLLLLLLL
+LLLLL.LLLLLL.LLLLLL.LLLLL.LLLLLLLLLLLLLLL.LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+LLLLLLLLLLLL.LLLLLL.LLLLL.LLLLLLL.LLLLLLLLLL.L.LLLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLL.LLLLLLLL"""
 
-  def __init__(self, filename="input"):
-    with open(filename, 'r') as f:
-      self.input = f.read()
-    self.lines = [line for line in self.input.split("\n") if line]
-    self.paragraphs = [graf for graf in self.input.split("\n\n") if graf]
+def get_table(input):
+    lines = input.splitlines()
+    sym_table = [[ch for ch in line] for line in lines]
+    return sym_table
 
-  def part_one(self):
-    raise NotImplementedError
+def print_table(sym_table):
+    lines = ["".join(line) for line in sym_table]
+    print("\n".join(lines))
 
-  def part_two(self):
-    raise NotImplementedError
+def count_seats(sym_table):
+    occupied = 0
+    for line in sym_table:
+        for ch in line:
+            if ch == '#':
+                occupied += 1
+    return occupied
 
-class Puzzle11(Puzzle):
+def is_valid_pos(sym_table, x, y):
+    return (x >= 0 and x < len(sym_table) and y >= 0 and y < len(sym_table[x]))
 
-  def __init__(self, filename="input"):
-    super().__init__(filename)
-    self.height = len(self.lines)
-    self.width = len(self.lines[0])
-    unstrung = np.array([x for line in self.lines for x in line])
-    self.grid = np.array(unstrung).reshape(self.height, self.width)
-    self.clock = 0
+def advance1(sym_table):
+    new_sym_table = [list(['.'] * len(sym_table[0])) for _ in sym_table]
+    for x in range(len(sym_table)):
+        for y in range(len(sym_table[x])):
+            current = sym_table[x][y]
+            num_occupied = 0
+            if current != '.':
+                for i in range(-1, 2):
+                    if x + i >= 0 and x + i < len(sym_table):
+                        for j in range(-1, 2):
+                            if y + j >= 0 and y + j < len(sym_table[x]):
+                                if not (i == 0 and j == 0):
+                                    if sym_table[x+i][y+j] == '#':
+                                        num_occupied += 1
+                if current == 'L':
+                    new_sym_table[x][y] = '#' if num_occupied == 0 else 'L'
+                elif current == "#":
+                    new_sym_table[x][y] = 'L' if num_occupied >= 4 else '#'
+    return new_sym_table
 
-  def count_occupied_neighbors(self, row, col):
-    result = 0
-    if col > 0: # away from left edge
-      if self.is_occupied(row, col - 1):
-        result += 1
-      if row > 0:
-        if self.is_occupied(row - 1, col - 1):
-          result += 1
-        if self.is_occupied(row - 1, col):
-          result += 1
-      if row < self.height - 1:
-        if self.is_occupied(row + 1, col - 1):
-          result += 1
-        if self.is_occupied(row + 1, col):
-          result += 1
-    if col < self.width - 1:
-      if self.is_occupied(row, col + 1):
-        result += 1
-      if row > 0:
-        if self.is_occupied(row - 1, col - 1):
-          result += 1
-      if row < self.height - 1:
-        if self.is_occupied(row + 1, col - 1):
-          result += 1
-    return result
+def advance2(sym_table):
+    new_sym_table = [list(['.'] * len(sym_table[0])) for _ in sym_table]
+    for x in range(len(sym_table)):
+        for y in range(len(sym_table[x])):
+            current = sym_table[x][y]
+            num_occupied = 0
+            if current != '.':
+                for i in range(-1, 2):
+                    for j in range(-1, 2):
+                        if not (i == 0 and j == 0):
+                            first_vis = get_first_visible(sym_table, x, y, i, j)
+                            if first_vis == '#':
+                                num_occupied += 1
+                if current == 'L':
+                    new_sym_table[x][y] = '#' if num_occupied == 0 else 'L'
+                elif current == '#':
+                    new_sym_table[x][y] = 'L' if num_occupied >= 5 else '#'
+    return new_sym_table
 
-  def is_occupied(self, row, col):
-    return self.grid[row][col] == '#'
+# def advance(sym_table, n):
+#     if n <= 0:
+#         return sym_table
+#     elif n == 1:
+#         return advance_helper(sym_table)
+#     else:
+#         return advance(advance_helper(sym_table), n-1)
 
-  def is_empty(self, row, col):
-    return self.grid[row][col] == 'L'
-
-  def will_fill(self, row, col):
-    return self.is_occupied(row, col) and self.count_occupied_neighbors(row, col) == 0
-
-  def will_empty(self, row, col):
-    return self.is_occupied(row, col) and self.count_occupied_neighbors(row, col) >= 4
-
-  def next_grid(self):
-    result = []
-    for i in range(self.height):
-      row = []
-      for j in range(self.width):
-        if self.is_empty(i, j):
-          if self.will_fill(i, j):
-            row.append('#')
-          else:
-            row.append('L')
-        elif self.is_occupied(i, j):
-          if self.will_empty(i, j):
-            row.append('L')
-          else:
-            row.append('#')
+def get_first_visible(sym_table, x, y, dx, dy):
+    assert(not(dx == 0 and dy == 0))
+    lambd = 1
+    while is_valid_pos(sym_table, x + lambd * dx, y + lambd * dy):
+        if sym_table[x + lambd * dx][y + lambd * dy] == '.':
+            lambd += 1
         else:
-          row.append('.')
-      result.append(row)
-    return np.array(result)
-
-  def advance_clock(self):
-    self.grid = self.next_grid()
-    self.clock += 1
-
-  def is_stable(self):
-    next_grid = self.next_grid()
-    if self.grid.shape == next_grid.shape:
-      return (self.grid == next_grid).all()
+            break
+    if not is_valid_pos(sym_table, x + lambd * dx, y + lambd * dy):
+        return '.'
     else:
-      raise ValueError
+        return sym_table[x + lambd * dx][y + lambd * dy]
 
-  def part_one(self):
-    while not self.is_stable():
-      self.advance_clock()
-    result = np.count_nonzero(self.grid == '#')
-    return result
+table1 = get_table(puzzle)
 
-p = Puzzle11("input")
-p1 = p.part_one()
-print(f"Part one: {p1} after {p.clock} steps")
+while table1 != advance2(table1):
+    table1 = advance2(table1)
+
+print(count_seats(table1))
+
