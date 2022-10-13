@@ -1,7 +1,11 @@
 import time
 
-with open("input1") as f:
-  reports = [int(val) for val in f.readlines()]
+try:
+  with open("input1") as f:
+    reports = [int(val) for val in f.readlines()]
+except FileNotFoundError:
+  with open("2020/01/input1") as f:
+    reports = [int(val) for val in f.readlines()]
 
 def part_one():
   for i in reports:

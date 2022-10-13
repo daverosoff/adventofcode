@@ -1,5 +1,8 @@
 import random
+<<<<<<< Updated upstream
 from collections import deque
+=======
+>>>>>>> Stashed changes
 
 sample = """2199943210
 3987894921
@@ -32,6 +35,7 @@ def puzzle(data, part):
                     mins.append((x, y))
         return part_one_result
     else:
+<<<<<<< Updated upstream
         lookup_table = [(x, y) for x in range(xmax + 1)
                                for y in range(ymax + 1) if arr[y][x] < 9]
         def find_basin():
