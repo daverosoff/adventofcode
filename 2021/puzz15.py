@@ -9,42 +9,79 @@ sample = """1163751742
 1359912421
 3125421639
 1293138521
-2311944581
+2311944582
 """
 
-def build_risk_table(risks: str):
-    lines = risks.split('\n')
-    return np.array([int(ch) for row in lines for ch in row], int).reshape(len(lines) - 1, len(lines) - 1)
+sample2 = """19999
+19111
+11191
+"""
 
-def get_max_risk(risks, cum_risks, i, j):
-    risk = risks[i, j]
-    if i == j == 0:
-        return 0
-    if 0 <= i - 1 < len(risks):
-        left = cum_risks[i-1, j]
-    else:
-        return risk + cum_risks[i, j-1]
-    if 0 <= j - 1 < len(risks[0]):
-        up = cum_risks[i, j-1]
-    else:
-        return risk + cum_risks[i-1, j]
-    risk += min(left, up)
-    return risk
+import numpy as np
+import pythonds3
 
-def populate(risks, cum_risks):
-    ell = len(risks)
-    for diag in range(2 * ell + 1):
-        for row in range(diag + 1):
-            col = diag - row
-            if 0 <= row < ell and 0 <= col < ell:
-                cum_risks[row, col] = get_max_risk(risks, cum_risks, row, col)
-    return cum_risks
+class Record:
+    def __init__(self, key, value):
+        self.key = key
+        self.value = value
+    
+    def __lt__(self, other):
+        return self.key < other.key
+    
+    def __le__(self, other):
+        return self.key <= other.key
+
+    def __eq__(self, other):
+        return self.key == other.key
+
+class MinPriorityQueue(pythonds3.BinaryHeap):
+    def add_with_priority(self, key, value):
+        self.insert(Record(key, value))
+    # def decrease_priority    
+
+class Graph:
+    def __init__(self, input: str):
+        lines = input.splitlines()
+        rows = len(lines)
+        cols = len(lines[0])
+        self.vertices = np.fromstring(input).reshape(rows, cols)
+        self.edges = {
+            (x + dx, y + dy)
+        }
+    
+    def neighbors(self, v):
+        pass
+
+def dijkstra(graph, init):
+    dist = {}
+    prev = {}
+    dist[init] = 0
+
+    pq = MinPriorityQueue()
+
+    for v in graph.vertices:
+        if v != init:
+            dist[v] = float("inf")
+
+        pq.add_with_priority(v, dist[v])
+
+    while pq:
+        u = pq.get_min()
+        for v in graph.neighbors(u):
+            if v.value not in [x.value for x in pq]:
+                alt = dist[u] + graph.edges(u, v)
+                if alt < dist[v]:
+                    dist[v] = alt
+                    prev[v] = u
+                    # pq.decrease_priority(v, alt)
+    
+    return dist, prev
 
 with open("input15.dat") as f:
     lines = f.read()
 
 # puzzle = build_risk_table(lines)
-risks = build_risk_table(lines)
-cum_risks = np.zeros(risks.shape, int)
+risks = build_risk_table(sample)
+cum_risks = risks.copy()
 cum_risks = populate(risks, cum_risks)
-print(cum_risks[-1, -1])
+print(cum_risks)
