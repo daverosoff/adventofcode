@@ -13,17 +13,17 @@ def get_priority(item: str) -> int:
     else:
         return ord(item) - ord('A') + 27
 
-def left_half(items: str) -> str:
+def left_half(items: str) -> set[str]:
     ell = len(items)
-    return items[ :ell//2]
+    return set(items[ :ell//2])
 
-def right_half(items: str) -> str:
+def right_half(items: str) -> set[str]:
     ell = len(items)
-    return items[ell//2: ]
+    return set(items[ell//2: ])
 
 def find_match(items: str) -> str:
     left, right = left_half(items), right_half(items)
-    match = [ch for ch in left if ch in right][0]
+    (match,) = left.intersection(right)
     return match
 
 def part_one(inp: str) -> int:
@@ -31,8 +31,8 @@ def part_one(inp: str) -> int:
 
 def part_two(inp: str) -> int:
     result = 0
-    for i in range(0, len(input := inp.splitlines()), 3):
-        group = input[i:i+3]
+    for i in range(0, len(groups := inp.splitlines()), 3):
+        group = groups[i:i+3]
         a, b, c = [set(elf) for elf in group]
         (match,) = a.intersection(b).intersection(c)
         result += get_priority(match)
