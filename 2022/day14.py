@@ -3,19 +3,24 @@ from collections import defaultdict as dd
 sample = """498,4 -> 498,6 -> 496,6
 503,4 -> 502,4 -> 502,9 -> 494,9"""
 
-def fall(x, y, map):
-    if (x,y) not in map.keys(): # empty
+def find_bottom(inp):
+    miny = min(int(line.split(" -> ")[0].split(",")[1]) for line in inp.splitlines())
+    maxy = max(int(line.split(" -> ")[-1].split(",")[1]) for line in inp.splitlines())
+    return miny, maxy
+
+def fall(x, y, map, maxy):
+    if y + 1 > maxy:
         return True
     elif map[(x, y + 1)] == '.':
-        fall(x, y + 1, map)
+        return fall(x, y + 1, map, maxy)
         # map[(x, y)] = '|'
     # elif map[(x, y + 1)] == '#':
     #     map[(x, y)] = 'o'
     #     return
     elif map[(x - 1, y + 1)] == '.':
-            fall(x - 1, y + 1, map)
+            return fall(x - 1, y + 1, map, maxy)
     elif map[(x + 1, y + 1)] == '.':
-            fall(x + 1, y + 1, map)
+            return fall(x + 1, y + 1, map, maxy)
     else:
         map[(x, y)] = 'o'
         return
@@ -32,6 +37,7 @@ def draw(map):
 
 def part_one(inp):
     dic = dd(lambda: '.')
+    miny, maxy = find_bottom(inp)
     for line in inp.splitlines():
         points = line.split(" -> ")
         while len(points) > 1:
@@ -53,12 +59,19 @@ def part_one(inp):
                         dic[(xh, y)] = '#'
             points = points[:-1]
     draw(dic)
-    for i in range(25):
-        if fall(500, 0, dic):
+    i = 0
+    while True:
+        if fall(500, 0, dic, maxy):
+            draw(dic)
             print(f"Success! {i}")
-        draw(dic)
-        print()
+            break
+        i += 1
+        # draw(dic)
+        # print()
 
-part_one(sample)
+with open('input14.dat') as f:
+    puzzle = f.read()
+
+part_one(puzzle)
 
 
