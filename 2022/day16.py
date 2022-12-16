@@ -15,10 +15,12 @@ def build_graph(inp):
         parts = line.split(';')
         name = parts[0].split()[1]
         flow = int(parts[0].split('=')[1])
-        graph[name] = (flow, [x.split()[1] for x in parts[1:]])
+        graph[name] = (flow, [x[:2] for x in parts[1].split()[4:]])
     return graph
 
-def dijkstra(graph, start, end):
+# def max_pressure_release(graph, start):
+
+def dijkstra(graph, start, end, time):
     dist = {start: 0}
     prev = {}
     q = set(graph.keys())
@@ -28,7 +30,7 @@ def dijkstra(graph, start, end):
         if u == end:
             break
         for v in graph[u][1]:
-            alt = dist[u] + graph[v][0]
+            alt = dist[u] + graph[v][0] * (30 - time - 2)
             if alt > dist.get(v, float('-inf')):
                 dist[v] = alt
                 prev[v] = u
@@ -36,3 +38,7 @@ def dijkstra(graph, start, end):
 
 def part_one(inp):
     g = build_graph(inp)
+    time = 0
+
+
+part_one(sample)
